@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { Sparkles, ArrowRight } from "lucide-react";
 
 /**
  * 网站首屏Hero区域组件
@@ -13,20 +13,23 @@ export default function Hero() {
   // 样式卡片数据
   const styleCards = [
     {
-      id: 'cartoon',
-      name: '卡通风格',
-      image: 'https://images.unsplash.com/photo-1560800452-f2d475982b96?q=80&w=300&h=300&auto=format&fit=crop'
+      id: "cartoon",
+      name: "卡通风格",
+      image:
+        "https://images.unsplash.com/photo-1560800452-f2d475982b96?q=80&w=300&h=300&auto=format&fit=crop",
     },
     {
-      id: 'fantasy',
-      name: '仙侠风格',
-      image: 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=300&h=300&auto=format&fit=crop'
+      id: "fantasy",
+      name: "仙侠风格",
+      image:
+        "https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=300&h=300&auto=format&fit=crop",
     },
     {
-      id: 'realistic',
-      name: '写实风格',
-      image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=300&h=300&auto=format&fit=crop'
-    }
+      id: "realistic",
+      name: "写实风格",
+      image:
+        "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=300&h=300&auto=format&fit=crop",
+    },
   ];
 
   return (
@@ -55,7 +58,7 @@ export default function Hero() {
               <br />
               释放创意无限可能
             </h1>
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-600 mb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -64,7 +67,7 @@ export default function Hero() {
               上传您的图片，选择风格，一键生成专业级别的精美图像。
               无论是卡通风格、仙侠世界还是写实主义，我们都能为您打造完美作品。
             </motion.p>
-            <motion.div 
+            <motion.div
               className="flex flex-wrap gap-4 justify-center"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -74,8 +77,8 @@ export default function Hero() {
                 <Sparkles size={18} />
                 立即创作
               </Link>
-              <Link 
-                href="/#how-it-works" 
+              <Link
+                href="/#how-it-works"
                 className="btn-secondary flex items-center"
               >
                 了解更多
@@ -92,9 +95,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
         >
-          {styleCards.map((card, index) => (
+          {styleCards.map((card) => (
             <div key={card.id} className="creation-card aspect-square">
-              <Image 
+              <Image
                 src={card.image}
                 alt={card.name}
                 width={400}
@@ -110,7 +113,7 @@ export default function Hero() {
         </motion.div>
 
         {/* 用户评价指标 */}
-        <motion.div 
+        <motion.div
           className="mt-16 flex flex-wrap items-center justify-center gap-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -136,4 +139,4 @@ export default function Hero() {
       </div>
     </section>
   );
-} 
+}
