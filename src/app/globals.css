@@ -1,26 +1,173 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 33, 33, 33;
+  --background-start-rgb: 250, 250, 250;
+  --background-end-rgb: 255, 255, 255;
+  --primary: 37, 99, 235;
+  --primary-light: 219, 234, 254;
+  --primary-dark: 30, 64, 175;
+  --secondary: 139, 92, 246;
+  --secondary-light: 237, 233, 254;
+  --card-bg: 255, 255, 255;
+  --border-color: 229, 231, 235;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-xl transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-gray-200 hover:border-blue-400 text-gray-800 font-medium py-3 px-6 rounded-xl transition duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold leading-tight;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl font-bold leading-tight;
+  }
+
+  .glass-card {
+    @apply bg-white/95 backdrop-blur-lg border border-gray-100 shadow-xl rounded-2xl;
+  }
+
+  .feature-card {
+    @apply bg-white hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden border border-gray-100;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-28;
+  }
+
+  .card-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .style-card {
+    @apply relative overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-lg cursor-pointer;
+  }
+
+  .style-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4;
+  }
+
+  .style-card-title {
+    @apply text-white font-medium text-lg;
+  }
+}
+
+/* 自定义动画 */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* 精美滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 创意卡片样式 */
+.creation-card {
+  @apply relative overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer;
+}
+
+.creation-card-img {
+  @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.creation-card:hover .creation-card-img {
+  transform: scale(1.05);
+}
+
+.creation-card-content {
+  @apply absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white;
+}
+
+.creation-card-title {
+  @apply text-xl font-bold mb-2;
+}
+
+.creation-card-desc {
+  @apply text-sm opacity-90;
+}
+
+/* 创建按钮 */
+.create-button {
+  @apply flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-xl;
+}
+
+/* 工具卡片 */
+.tool-card {
+  @apply bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full;
+}
+
+.tool-card-icon {
+  @apply w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4;
+}
+
+.tool-card-title {
+  @apply text-lg font-bold mb-2;
+}
+
+.tool-card-desc {
+  @apply text-gray-600 text-sm;
 }
