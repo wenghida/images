@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  output: "export", // 改为 export 而不是 standalone
   images: {
     unoptimized: true,
     remotePatterns: [
